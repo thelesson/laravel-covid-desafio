@@ -1,62 +1,91 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Laravel - Protótipo Covid Api - Teste
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Protótipo simples de uma aplicação em Laravel que retorna em url interna os dados sobre o Covid19 , consomindo a api do Brasil IO.
+Pilha Laravel + JeatStream Liveware + Guzzle + Voyager Laravel
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p align="center">
+  <img src="./screenshots/img1.png"  width="100%">
+</p>
 
-## Learning Laravel
+- [Veja a Demonstração](https://dev3.algoritmo9.site).
+- login: admin@admin.com
+- senha: admin999
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## Instalação
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+ - Clone para o seu servidor
+ - Insira suas credenciais no arquivo .env
+ - Importe o arquivo projeto01.sql para a sua base de dados recém criada. Não utilize Migrate
+ - Certifique-se que possui acesso para escrita na pasta /storage
+ - Tenha o node a partir da v12 intalado
+ - Rode sudo npm install e sudo npm run dev para que o frontend seja compilado
+ - Em alguns casos pode ser necessário regenerar o link storage na pasta pública. Delete a pasta /storage localizado em /public e rode o comando: php artisan storage:link
 
-### Premium Partners
+## Templates Frontend Utilizados
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+Para essa aplicação os seguintes templates html puro foram utlizados:
+ - Corano Html Template (https://elements.envato.com/pt-br/corano-covid-19-coronavirus-awareness-html-CFYLCSL)
+ - Neat Dashboard (https://elements.envato.com/pt-br/neat-web-application-kit-dashboard-template-5KC6GE)
 
-## Contributing
+Todo o backend da aplicação implementado no Laravel está disponível sob a licença MIT, os templates html utilizados para o frontend desta aplicação possuem termos de licenças próprias que você pode verificar aqui em (https://elements.envato.com/pt-br/license-terms).
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+### Endpoints
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- *GET: /api/data/state={state}&dateStart={dateStart}&dateEnd={dateEnd} -* - Retorna os dados do Covid19 disponibilizado pelo Brasil IO, através da Rota API, seguindo a padronização de url das apis em Laravel
+- *GET: /data/state={state}&dateStart={dateStart}&dateEnd={dateEnd} -* - Retorna os dados do Covid19 disponibilizado pelo Brasil IO, através da Rota Web, seguindo o modelo de exemplo enviado no email.
+- *GET: /percentual2 -* - Endpoint pública que retorna em json as 10 cidades do Brasil com maiores percentuais de casos Covid em relação a sua população estimada, segundo os dados da Brasil IO
+- *GET: /percentual -* Endpoint pública que retorna em json as 10 cidades do Brasil com maiores percentuais de casos Covid em relação a sua população estimada. Alguns dados importantes do Brasil IO estavam nulos e aparentemente não muito consistentes. Em alternativa foi utilizado os dados da Gazeta para fins de comparação 
+- *GET: /api/tokenizado/percentual2 -* Endpoint **privado** que retorna em json as 10 cidades do Brasil com maiores percentuais de casos Covid em relação a sua população estimada, segundo os dados do Brasil IO. Este endpoint requer token de autorização que pode ser criado na área de Apis Tokens, dentro da aplicação. Para testar a endpoint é recomendado o uso da ferramenta Postman, insira no header da requisição GET o Bearer Token criado.
+- *GET: /api/tokenizado/percentual -* Endpoint **privado** que retorna em json as 10 cidades do Brasil com maiores percentuais de casos Covid em relação a sua população estimada, segundo os dados da Gazeta. Este endpoint requer token de autorização que pode ser criado na área de Apis Tokens, dentro da aplicação. Para testar a endpoint é recomendado o uso da ferramenta Postman, insira no header da requisição GET o Bearer Token criado.
+- *POST: /api/TestApi -* Endpoint pública que permite o envio de requisição Post, através do endpoint. Parametros Aceitos:nomeUsuario,cidade,porcentagem,ranking
+- *GET: //api/testApi -* Endpoint que retorna todos os objetos criados através da rota Post acima.
+- *GET: //api/testApi/$id -* - Retorna um objeto através do id como parametro.
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Outras Funcionalidades
 
-## License
+Para exibição dos contadores de casos disponiveis na página inicial, foi criado um webcrawler que raspa os dados do site: https://www.worldometers.info/coronavirus/ , através do pacote Laravel goutte. 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Algumas capturas de tela
+
+<p align="center">
+  <img src="./screenshots/img1.png"  width="100%">
+</p>
+<p align="center">
+  <img src="./screenshots/img2.png"  width="100%">
+</p>
+<p align="center">
+  <img src="./screenshots/img3.png"  width="100%">
+</p>
+<p align="center">
+  <img src="./screenshots/img4.png"  width="100%">
+</p>
+<p align="center">
+  <img src="./screenshots/img5.png"  width="100%">
+</p>
+<p align="center">
+  <img src="./screenshots/img6.png"  width="100%">
+</p>
+<p align="center">
+  <img src="./screenshots/img7.png"  width="100%">
+</p>
+<p align="center">
+  <img src="./screenshots/img8.png"  width="100%">
+</p>
+<p align="center">
+  <img src="./screenshots/img9.png"  width="100%">
+</p>
+
+## 2021
+
+
