@@ -6,7 +6,7 @@
 
 ## Laravel - Protótipo Covid Api - Teste
 
-Protótipo simples de uma aplicação em Laravel que retorna em url interna os dados sobre o Covid19 , consomindo a api do Brasil IO.
+Protótipo simples de uma aplicação em Laravel que retorna em url interna os dados sobre o Covid19 , consumindo a api do Brasil IO.
 Pilha Laravel + JeatStream Liveware + Guzzle + Voyager Laravel
 
 
@@ -26,7 +26,7 @@ Pilha Laravel + JeatStream Liveware + Guzzle + Voyager Laravel
  - Insira suas credenciais no arquivo .env
  - Importe o arquivo projeto01.sql para a sua base de dados recém criada. Não utilize Migrate
  - Certifique-se que possui acesso para escrita na pasta /storage
- - Tenha o node a partir da v12 intalado
+ - Tenha o node a partir da v12 instalado
  - Rode sudo npm install e sudo npm run dev para que o frontend seja compilado
  - Em alguns casos pode ser necessário regenerar o link storage na pasta pública. Delete a pasta /storage localizado em /public e rode o comando: php artisan storage:link
 
@@ -36,7 +36,7 @@ Para essa aplicação os seguintes templates html puro foram utlizados:
  - Corano Html Template (https://elements.envato.com/pt-br/corano-covid-19-coronavirus-awareness-html-CFYLCSL)
  - Neat Dashboard (https://elements.envato.com/pt-br/neat-web-application-kit-dashboard-template-5KC6GE)
 
-Todo o backend da aplicação implementado no Laravel está disponível sob a licença MIT, os templates html utilizados para o frontend desta aplicação possuem termos de licenças próprias que você pode verificar aqui em (https://elements.envato.com/pt-br/license-terms).
+Todo o backend da aplicação implementado no Laravel por mim está disponível sob a licença MIT, os templates html utilizados para o frontend desta aplicação possuem termos de licenças próprias que você pode verificar aqui em (https://elements.envato.com/pt-br/license-terms).
 
 
 ### Endpoints
@@ -54,7 +54,8 @@ Todo o backend da aplicação implementado no Laravel está disponível sob a li
 
 ## Outras Funcionalidades
 
-Para exibição dos contadores de casos disponiveis na página inicial, foi criado um webcrawler que raspa os dados do site: https://www.worldometers.info/coronavirus/ , através do pacote Laravel goutte. 
+Para exibição dos contadores de casos disponiveis na página inicial, foi criado um webcrawler que raspa os dados do site: https://www.worldometers.info/coronavirus/ , através do pacote Laravel goutte. Até o momento esta funcionalidade ainda não foi habilitada na versão em produção, devido a algumas configurações do servidor que precisam ser realizadas mas localmente irá rodar tranquilamente.
+Você pode verificar o código em : /app/Http/Controllers/Crawller.php
 
 ## Algumas capturas de tela
 
