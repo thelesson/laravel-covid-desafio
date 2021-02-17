@@ -55,17 +55,20 @@ jQuery(window).scroll(startCounter);
 function startCounter() {
 
     if (jQuery(window).scrollTop() > 0) {
-        jQuery(window).off("scroll", startCounter);
-        jQuery('.counter-value').each(function() {
-            var $this = jQuery(this);
-            jQuery({ Counter: 0 }).animate({ Counter: $this.text() }, {
-                duration: 2000,
-                easing: 'swing',
-                step: function() {
-                    $this.text(Math.ceil(this.Counter) + '');
-                }
+        setTimeout(() => { 
+            jQuery(window).off("scroll", startCounter);
+            jQuery('.counter-value').each(function() {
+                var $this = jQuery(this);
+                jQuery({ Counter: 0 }).animate({ Counter: $this.text() }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function() {
+                        $this.text(Math.ceil(this.Counter) + '');
+                    }
+                });
             });
-        });
+         }, 1000);
+       
     }
     if (jQuery(window).scrollTop() > 0) {
         jQuery(window).off("scroll", startCounter);

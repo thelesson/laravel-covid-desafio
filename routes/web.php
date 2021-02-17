@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
+Route::get('/', 'App\Http\Controllers\Crawller@index')->name('inicio');
 Route::get('data/state={state}&dateStart={dateStart}&dateEnd={dateEnd}', 'App\Http\Controllers\Controlador@data')->name('data');
 Route::get('percentual', 'App\Http\Controllers\Controlador@percentual')->name('percentual');
 Route::get('percentual2', 'App\Http\Controllers\Controlador@percentualBrasilIO')->name('percentualBrasilIO');

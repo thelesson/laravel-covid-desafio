@@ -7,8 +7,11 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use App\Models\CovidGazeta;
 use DB;
+
 class Controlador extends Controller
 {
+
+   
     public function data($state,$dataStart,$dateEnd){
        // return response()->json(['estado' => $state, 'data1' => $dataStart, 'data2' => $dateEnd]);
        $options = [
