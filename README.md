@@ -4,11 +4,11 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Laravel - Protótipo Covid Api - Teste
+## Laravel - Protótipo Covid Api - Teste Processo Seletivo - Vaga Remota - Laravel 
 
 Protótipo simples de uma aplicação em Laravel que retorna em url interna os dados sobre o Covid19 , consumindo a api do Brasil IO.
-Pilha Laravel + JeatStream Liveware + Guzzle + Voyager Laravel
-
+Pilha Laravel + JeatStream Liveware + Guzzle + Voyager Laravel.
+Este repositório é o resultado final de uma prova prática entregue aos avaliadores, para concorrer a uma vaga de desenvolvedor Laravel.
 
 <p align="center">
   <img src="./screenshots/img1.png"  width="100%">
@@ -48,8 +48,8 @@ Todo o backend da aplicação implementado no Laravel por mim está disponível 
 - *GET: /api/tokenizado/percentual2 -* Endpoint **privado** que retorna em json as 10 cidades do Brasil com maiores percentuais de casos Covid em relação a sua população estimada, segundo os dados do Brasil IO. Este endpoint requer token de autorização que pode ser criado na área de Apis Tokens, dentro da aplicação. Para testar a endpoint é recomendado o uso da ferramenta Postman, insira no header da requisição GET o Bearer Token criado.
 - *GET: /api/tokenizado/percentual -* Endpoint **privado** que retorna em json as 10 cidades do Brasil com maiores percentuais de casos Covid em relação a sua população estimada, segundo os dados da Gazeta. Este endpoint requer token de autorização que pode ser criado na área de Apis Tokens, dentro da aplicação. Para testar a endpoint é recomendado o uso da ferramenta Postman, insira no header da requisição GET o Bearer Token criado.
 - *POST: /api/TestApi -* Endpoint pública que permite o envio de requisição Post, através do endpoint. Parametros Aceitos:nomeUsuario,cidade,porcentagem,ranking
-- *GET: //api/testApi -* Endpoint que retorna todos os objetos criados através da rota Post acima.
-- *GET: //api/testApi/$id -* - Retorna um objeto através do id como parametro.
+- *GET: /api/testApi -* Endpoint que retorna todos os objetos criados através da rota Post acima.
+- *GET: /api/testApi/$id -* - Retorna um objeto através do id como parametro.
 
 
 ## Outras Funcionalidades
